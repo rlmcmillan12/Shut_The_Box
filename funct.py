@@ -44,23 +44,26 @@ def master_list_cover(master_list, del_list):
 
 
 def cover_checker_list_maker(master_list):
-    for i in master_list
-    if i
+    cover_checker_list = []
+    for i in master_list:
+        if i != " ":
+            cover_checker_list.append(i)
+    return cover_checker_list
 
 
-def cover_checker(roll_total, master_list):
-    return _cover_checker(roll_total, master_list, {})
+def cover_checker(roll_total, cover_checker_list):
+    filtered_list = cover_checker_list_maker(cover_checker_list)
+    return _cover_checker(roll_total, filtered_list, {})
 
 
-def _cover_checker(roll_total, master_list, memo):
-    if roll_total in master_list:
-        return memo[roll_total]
+def _cover_checker(roll_total, cover_checker_list, memo):
 
     if roll_total < 0:
         return False
     if roll_total == 0:
         return True
-    for num in master_list:
-        if amount
-        if cover_checker(roll_total - num, master_list) == True:
+    for num in cover_checker_list:
+        if _cover_checker(roll_total - num, cover_checker_list[1:], memo) == True:
             return True
+
+    return False

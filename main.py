@@ -1,5 +1,5 @@
 
-from funct import shut_the_box_roll, master_list_total, master_list_cover, clear_console
+from funct import shut_the_box_roll, master_list_total, master_list_cover, clear_console, cover_checker
 from banners import page_header, you_win, you_lose
 
 master_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -43,7 +43,9 @@ So for instance, if the total is 8, the player may choose one of the following o
                 print(master_list)
                 roll_total = shut_the_box_roll(master_list)
                 ml_total = master_list_total(master_list)
-                if roll_total < ml_total:
+
+                valid_moves = cover_checker(roll_total, master_list)
+                if roll_total < ml_total and valid_moves == True:
                     clear_console()
                     print("Your total roll is: " + str(roll_total))
                     print("\nYou have " + str(master_list) + " open")
@@ -66,18 +68,21 @@ So for instance, if the total is 8, the player may choose one of the following o
                     del del_list
                     print(master_list)
                 elif roll_total == ml_total:
-                    print("You rolled: " + str(roll_total))
+                    clear_console()
+                    print("You rolled: " + str(roll_total) + "\n")
                     print(you_win)
                     end_game = input(
-                        print("\nPress ENTER to restart the game: "))
+                        "\nPress ENTER to restart the game: ")
                     if end_game == "":
                         break
                     else:
                         break
                 else:
+                    clear_console()
+                    print("You rolled: " + str(roll_total) + "\n")
                     print(you_lose)
                     end_game = input(
-                        print("\nPress ENTER to restart the game: "))
+                        "\nPress ENTER to restart the game: ")
                     if end_game == "":
                         break
                     else:
