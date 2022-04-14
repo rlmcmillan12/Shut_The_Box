@@ -1,4 +1,10 @@
 from random import randint
+import os
+# from main import master_list
+
+
+def clear_console():
+    os.system('clear')
 
 
 def one_die():
@@ -12,14 +18,13 @@ def two_dice():
 
 
 def shut_the_box_roll(master_list):
-
     if 7 not in master_list and 8 not in master_list and 9 not in master_list:
         roll_choice = print(
             "would you like to roll one or two dice?\nEnter 1 or 2: ")
-    if roll_choice == "1":
-        return one_die()
-    if roll_choice == "2":
-        return two_dice()
+        if roll_choice == "1":
+            return one_die()
+        if roll_choice == "2":
+            return two_dice()
     elif 7 in master_list or 8 in master_list or 9 in master_list:
         print("You still have 7, 8, and 9 uncovered\nRolling two dice")
         return two_dice()
@@ -28,11 +33,34 @@ def shut_the_box_roll(master_list):
 def master_list_total(master_list):
     master_total = 0
     for i in master_list:
-        master_total += int(i)
+        if i != " ":
+            master_total += int(i)
     return master_total
 
 
 def master_list_cover(master_list, del_list):
-    for i in del_list:
-        if i in master_list:
-            master_list[i] = " "
+    for num in del_list:
+        master_list[num - 1] = " "
+
+
+def cover_checker_list_maker(master_list):
+    for i in master_list
+    if i
+
+
+def cover_checker(roll_total, master_list):
+    return _cover_checker(roll_total, master_list, {})
+
+
+def _cover_checker(roll_total, master_list, memo):
+    if roll_total in master_list:
+        return memo[roll_total]
+
+    if roll_total < 0:
+        return False
+    if roll_total == 0:
+        return True
+    for num in master_list:
+        if amount
+        if cover_checker(roll_total - num, master_list) == True:
+            return True
