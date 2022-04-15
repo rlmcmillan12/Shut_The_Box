@@ -41,8 +41,10 @@ def master_list_total(master_list):
 
 
 def master_list_cover(master_list, del_list):
+    print(master_list)
     for num in del_list:
         master_list[num - 1] = " "
+    return master_list
 
 
 def cover_checker_list_maker(master_list):
@@ -69,3 +71,6 @@ def cover_checker(roll_total: int, master_list: list[int], memo={}):
 
     memo[roll_total] = False
     return False
+
+
+def close_looper(close, del_list, master_list)
