@@ -56,7 +56,7 @@ So for instance, if the total is 8, the player may choose one of the following o
                             str((roll_total - close_total)) + " left to close"
                         )
                         close = int(
-                            input("Which number would you like to close?: ")
+                            input("Which number('s) would you like to close?: ")
                         )
                         for num in master_list:
                             if close == num:
@@ -64,8 +64,6 @@ So for instance, if the total is 8, the player may choose one of the following o
                                 del_list.append(close)
                             if close not in master_list:
                                 print("That is not open")
-                            else:
-                                print("Try Again!")
                         master_list_cover(master_list, del_list)
                     clear_console()
                     del del_list

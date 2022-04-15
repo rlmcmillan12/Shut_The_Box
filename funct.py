@@ -73,4 +73,4 @@ def cover_checker(roll_total: int, master_list: list[int], memo={}):
     return False
 
 
-def close_looper(close, del_list, master_list)
+# def close_looper(close, del_list, master_list):
